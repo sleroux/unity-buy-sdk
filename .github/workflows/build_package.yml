@@ -67,21 +67,21 @@ jobs:
       run: cp ./EXAMPLES.md ./Assets/Shopify/examples.txt
 
     - name: Publish .unitypackage
-        uses: MirrorNG/unity-runner@3.1.0
-        with:
-          args: |
-            -username ${{ secrets.UNITY_EMAIL }}
-            -password ${{ secrets.UNITY_PASSWORD }}
-            -serial ${{ secrets.UNITY_SERIAL }}
-            -gvh_disable
-            -batchmode
-            -nographics
-            -silent-crashes
-            -importPackage "ThirdParty/play-services-resolver-1.2.92.0.unitypackage"
-            -projectPath ./
-            -executeMethod "Publishing.PublishFromCommandLine"
-            -quit
-            shopify-buy.unitypackage
+      uses: MirrorNG/unity-runner@3.1.0
+      with:
+        args: |
+          -username ${{ secrets.UNITY_EMAIL }}
+          -password ${{ secrets.UNITY_PASSWORD }}
+          -serial ${{ secrets.UNITY_SERIAL }}
+          -gvh_disable
+          -batchmode
+          -nographics
+          -silent-crashes
+          -importPackage "ThirdParty/play-services-resolver-1.2.92.0.unitypackage"
+          -projectPath ./
+          -executeMethod "Publishing.PublishFromCommandLine"
+          -quit
+          shopify-buy.unitypackage
 
     - name: Upload .unitypackage
       uses: actions/upload-artifact@v2
