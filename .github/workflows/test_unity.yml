@@ -30,3 +30,7 @@ jobs:
       with:
         name: Test results
         path: artifacts
+
+    - name: Return license
+      uses: game-ci/unity-return-license@v1
+      if: always()
