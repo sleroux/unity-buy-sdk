@@ -51,6 +51,9 @@
                   Identifier = "CartTests">
                </Test>
                <Test
+                  Identifier = "DeserializableTests">
+               </Test>
+               <Test
                   Identifier = "MessageTests">
                </Test>
                <Test
