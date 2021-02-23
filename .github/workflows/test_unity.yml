@@ -10,6 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - uses: actions/setup-ruby@v2
+      with:
+        ruby-version: '2.6'
+
+    - name: Generate GraphQL Objects
+      run: |
+        ./scripts/generate.sh github
+
     - name: Cache Unity Library
       uses: actions/cache@v2
       with:
