@@ -66,20 +66,28 @@ jobs:
     - name: Copy Examples to Shopify/examples.txt
       run: cp ./EXAMPLES.md ./Assets/Shopify/examples.txt
 
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Publish .unitypackage
+        uses: MirrorNG/unity-runner@3.1.0
+        with:
+          args: |
+            -username ${{ secrets.UNITY_EMAIL }}
+            -password ${{ secrets.UNITY_PASSWORD }}
+            -serial ${{ secrets.UNITY_SERIAL }}
+            -gvh_disable
+            -batchmode
+            -nographics
+            -silent-crashes
+            -importPackage "ThirdParty/play-services-resolver-1.2.92.0.unitypackage"
+            -projectPath ./
+            -executeMethod "Publishing.PublishFromCommandLine"
+            -quit
+            shopify-buy.unitypackage
 
-    - name: Request manual activation file
-      uses: MirrorNG/unity-runner@3.1.0
-      id: getManualLicenseFile
+    - name: Upload .unitypackage
+      uses: actions/upload-artifact@v2
       with:
-          entrypoint: /request_activation.sh
-
-    - name: Expose as artifact
-      uses: actions/upload-artifact@v1
-      with:
-          name: Manual Activation File
-          path: ${{ steps.getManualLicenseFile.outputs.filePath }}
+        name: unity-package
+        path: ./*.unitypackage
 
 
 
