@@ -37,6 +37,8 @@ jobs:
   package_unity:
     runs-on: ubuntu-latest
     needs: build_ios
+    env:
+      UNITY_PACKAGE: shopify-buy.unity-package
 
     steps:
     - uses: actions/checkout@master
@@ -77,11 +79,10 @@ jobs:
           -batchmode
           -nographics
           -silent-crashes
-          -importPackage "ThirdParty/play-services-resolver-1.2.92.0.unitypackage"
+          -importPackage ThirdParty/play-services-resolver-1.2.92.0.unitypackage
           -projectPath ./
-          -executeMethod "Publishing.PublishFromCommandLine"
-          -quit
-          shopify-buy.unitypackage
+          -executeMethod Publishing.PublishFromCommandLine
+          -quit $UNITY_PACKAGE
 
     - name: Upload .unitypackage
       uses: actions/upload-artifact@v2
