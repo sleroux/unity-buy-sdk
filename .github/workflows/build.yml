@@ -31,8 +31,8 @@ jobs:
       with:
         name: ios-plugin-libraries
         path: |
-          $OUTPUT_PATH/Build/Products/Release-iphoneos/*.a
-          $OUTPUT_PATH/Build/Products/Release-simulator/*.a
+          ./Build/Build/Products/Release-iphoneos/*.a
+          ./Build//Build/Products/Release-simulator/*.a
 
   package_unity:
     runs-on: ubuntu-latest
