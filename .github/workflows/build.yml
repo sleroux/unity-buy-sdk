@@ -1,0 +1,62 @@
+name: Build Unity Project and Dependencies
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build_ios:
+    runs-on: macOS-latest
+    env:
+      OUTPUT_PATH: ./Build
+
+    steps:
+    - uses: actions/checkout@master
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.6'
+
+    - name: Install xcpretty
+      run: gem install xcpretty
+
+    - name: Use Xcode 12
+      run: sudo xcode-select -s /Applications/Xcode_12.app
+
+    - name: Build iOS static libraries
+      run: ./PluginDependencies/iOSPlugin/Scripts/build
+
+    - name: Upload library artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ios-plugin-libraries
+        path: |
+          "$OUTPUT_PATH/Build/Products/Release-iphoneos/libUnityBuySDKPlugin_device.a"
+          "$OUTPUT_PATH/Build/Products/Release-simulator/libUnityBuySDKPlugin_simulator.a"
+
+  package_unity:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - uses: actions/download-artifact@v2
+      with:
+        name: ios-plugin-libraries
+        path: Assets/Shopify/Plugins/iOS/Shopify
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.6'
+
+    - name: Generate GraphQL Objects
+      run: |
+        ./scripts/generate.sh github
+
+
+
+
+
+
+
+
