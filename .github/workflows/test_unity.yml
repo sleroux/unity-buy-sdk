@@ -33,6 +33,7 @@ jobs:
       with:
         projectPath: .
         unityVersion: 2019.4.18f1
+        testMode: editmode
 
     - uses: actions/upload-artifact@v1
       with:

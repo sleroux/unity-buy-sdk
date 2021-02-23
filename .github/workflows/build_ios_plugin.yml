@@ -1,0 +1,30 @@
+name: Build iOS Plugin
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.6'
+
+    - name: Install xcpretty
+      run: gem install xcpretty
+
+    - name: Use Xcode 12
+      run: sudo xcode-select -s /Applications/Xcode_12.app
+
+    - name: Build iOS Plugins for x86
+
+    - name: Build iOS Plugins for arm64
+
+    - name: Build iOS Plugins for armv7
+
+    - name: Upload library artifacts
