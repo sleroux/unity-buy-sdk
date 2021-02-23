@@ -31,8 +31,8 @@ jobs:
       with:
         name: ios-plugin-libraries
         path: |
-          "$OUTPUT_PATH/Build/Products/Release-iphoneos/libUnityBuySDKPlugin_device.a"
-          "$OUTPUT_PATH/Build/Products/Release-simulator/libUnityBuySDKPlugin_simulator.a"
+          $OUTPUT_PATH/Build/Products/Release-iphoneos/*.a
+          $OUTPUT_PATH/Build/Products/Release-simulator/*.a
 
   package_unity:
     runs-on: ubuntu-latest
