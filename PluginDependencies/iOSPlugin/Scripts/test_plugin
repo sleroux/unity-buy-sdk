@@ -4,7 +4,7 @@ set -ex
 set -eo pipefail
 
 xcodebuild test \
--project "UnityBuySDKPlugin.xcodeproj" \
+-project "PluginDependencies/iOSPlugin/UnityBuySDKPlugin.xcodeproj" \
 -scheme "UnityBuySDKPlugin" \
 -sdk iphonesimulator \
 -destination "id=$CURRENT_SIMULATOR_UUID" \
