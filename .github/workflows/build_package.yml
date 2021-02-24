@@ -32,7 +32,7 @@ jobs:
         name: ios-plugin-libraries
         path: |
           ./Build/Build/Products/Release-iphoneos/*.a
-          ./Build/Build/Products/Release-simulator/*.a
+          ./Build/Build/Products/Release-iphonesimulator/*.a
 
   package_unity:
     runs-on: ubuntu-latest
@@ -46,7 +46,7 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: ios-plugin-libraries
-        path: Assets/Shopify/Plugins/iOS/Shopify
+        path: ./Assets/Shopify/Plugins/iOS/Shopify
 
     - uses: ruby/setup-ruby@v1
       with:
