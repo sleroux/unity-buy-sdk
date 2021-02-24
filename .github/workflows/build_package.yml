@@ -79,7 +79,7 @@ jobs:
           -batchmode
           -nographics
           -silent-crashes
-          -importPackage ./ThirdParty/play-services-resolver-1.2.92.0.unitypackage
+          -importPackage ./ThirdParty/external-dependency-manager-1.2.164.unitypackage
           -projectPath ./
           -executeMethod Publishing.PublishFromCommandLine
           -quit $UNITY_PACKAGE
