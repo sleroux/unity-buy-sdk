@@ -32,13 +32,13 @@ jobs:
         name: ios-plugin-libraries
         path: |
           ./Build/Build/Products/Release-iphoneos/*.a
-          ./Build//Build/Products/Release-simulator/*.a
+          ./Build/Build/Products/Release-simulator/*.a
 
   package_unity:
     runs-on: ubuntu-latest
     needs: build_ios
     env:
-      UNITY_PACKAGE: shopify-buy.unity-package
+      UNITY_PACKAGE: shopify-buy.unitypackage
 
     steps:
     - uses: actions/checkout@master
