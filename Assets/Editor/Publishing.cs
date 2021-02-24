@@ -6,7 +6,7 @@ using System.IO;
 
 public class Publishing {
     public static string[] DirectoriesInPackage = new string[] {
-        "Assets/ExternalDependencyManager/
+        "Assets/ExternalDependencyManager/",
         "Assets/ExternalDependencyManager/Editor/",
         "Assets/Shopify/",
         "Assets/Shopify/Examples/",
