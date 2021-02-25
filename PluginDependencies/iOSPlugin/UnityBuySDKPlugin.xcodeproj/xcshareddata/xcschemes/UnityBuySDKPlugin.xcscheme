@@ -39,6 +39,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "ApplePayErrorDeserializingTests">
+               </Test>
+               <Test
                   Identifier = "ApplePayEventDispatcherTests">
                </Test>
                <Test
