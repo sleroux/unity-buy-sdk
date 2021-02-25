@@ -29,10 +29,9 @@ jobs:
     - name: Upload library artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ios-plugin-libraries
+        name: ios-plugin-library
         path: |
-          ./Build/Build/Products/Release-iphoneos/*.a
-          ./Build/Build/Products/Release-iphonesimulator/*.a
+          ./Build/libUnityBuySDKPlugin.a
 
   package_unity:
     runs-on: ubuntu-latest
@@ -45,8 +44,8 @@ jobs:
 
     - uses: actions/download-artifact@v2
       with:
-        name: ios-plugin-libraries
-        path: ./Assets/Shopify/Plugins/iOS/Shopify
+        name: ios-plugin-library
+        path: ./Assets/Shopify/Plugins/iOS/Shopify/.
 
     - uses: ruby/setup-ruby@v1
       with:
