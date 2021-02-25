@@ -29,7 +29,6 @@ import PassKit
 
 @testable import UnityBuySDKPlugin
 
-@available(iOS 10.0, *)
 class ApplePayEventDispatcherTests: XCTestCase {
     
     let timeout = 10.0
@@ -151,7 +150,6 @@ class ApplePayEventDispatcherTests: XCTestCase {
     }
 }
 
-@available(iOS 10.0, *)
 extension ApplePayEventDispatcherTests {
 
     func assertLastMessageContentEqual(to content: String?) {

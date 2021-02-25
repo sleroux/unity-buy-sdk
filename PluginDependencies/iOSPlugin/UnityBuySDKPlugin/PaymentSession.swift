@@ -67,7 +67,7 @@ protocol PaymentSessionDelegate : class {
 public class PaymentSession : NSObject {
     
     let request: PKPaymentRequest
-    var controller: PaymentAuthorizationControlling
+    var controller: PKPaymentAuthorizationController
     
     /// Whether Apple is in the process of authenticating the payment request
     var isAuthenticating: Bool = false
@@ -88,7 +88,7 @@ public class PaymentSession : NSObject {
         supportedNetworks: [PKPaymentNetwork],
         summaryItems: [PKPaymentSummaryItem],
         shippingMethods:[PKShippingMethod]?,
-        controllerType: PaymentAuthorizationControlling.Type = PKPaymentAuthorizationViewController.self)
+        controllerType: PKPaymentAuthorizationController.Type = PKPaymentAuthorizationController.self)
     {
         request = PKPaymentRequest()
         request.countryCode                   = countryCode
@@ -103,15 +103,11 @@ public class PaymentSession : NSObject {
         request.paymentSummaryItems = summaryItems
         request.shippingMethods     = shippingMethods
     
-        guard let controller = controllerType.init(paymentRequest: request) else {
-            return nil
-        }
-        
-        self.controller = controller
+        self.controller = controllerType.init(paymentRequest: request)
         
         super.init();
         
-        self.controller.authorizationDelegate = self
+        self.controller.delegate = self
     }
     
     /// Presents the PKAuthorizationController with the current shipping methods
@@ -147,12 +143,8 @@ extension PaymentSession {
     }
 }
 
-// ----------------------------------
-//  MARK: - Generic Payment Authorization Delegate Functions -
-//
-extension PaymentSession {
-    
-    func paymentAuthorizationDidFinish() {
+extension PaymentSession: PKPaymentAuthorizationControllerDelegate {
+    public func paymentAuthorizationControllerDidFinish(_ controller: PKPaymentAuthorizationController) {
         let paymentStatus: PaymentStatus
         
         if (isAuthenticating) {
@@ -169,24 +161,22 @@ extension PaymentSession {
         }
     }
     
-    func paymentAuthorizationWillAuthorizePayment() {
+    public func paymentAuthorizationControllerWillAuthorizePayment(_ controller: PKPaymentAuthorizationController) {
         isAuthenticating = true
     }
-}
-
-@available(iOS, introduced: 8.0, deprecated: 11.0)
-extension PaymentSession {
     
-    func paymentAuthorization(didSelect shippingMethod: PKShippingMethod, completion: @escaping (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void) {
+    @available(iOS, introduced: 10.0, deprecated: 11.0)
+    public func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod, completion: @escaping (PKPaymentAuthorizationStatus, [PKPaymentSummaryItem]) -> Void) {
         delegate?.paymentSession(self, didSelect: shippingMethod, completion: completion)
     }
     
-    func paymentAuthorization(didSelectShippingContact contact: PKContact, completion: @escaping (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void) {
+    @available(iOS, introduced: 10.0, deprecated: 11.0)
+    public func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingContact contact: PKContact, completion: @escaping (PKPaymentAuthorizationStatus, [PKShippingMethod], [PKPaymentSummaryItem]) -> Void) {
         delegate?.paymentSession(self, didSelectShippingContact: contact, completion: completion)
     }
     
-    func paymentAuthorization(didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
-        
+    @available(iOS, introduced: 10.0, deprecated: 11.0)
+    public func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, completion: @escaping (PKPaymentAuthorizationStatus) -> Swift.Void) {
         isAuthenticating = false
         
         delegate?.paymentSession(self, didAuthorize: payment, completion: { status in
@@ -200,19 +190,9 @@ extension PaymentSession {
             completion(status)
         })
     }
-}
-
-@available(iOS 11.0, *)
-extension PaymentSession {
-    func paymentAuthorization(didSelectShippingMethod shippingMethod: PKShippingMethod, handler completion: @escaping (PKPaymentRequestShippingMethodUpdate) -> Void) {
-        delegate?.paymentSession(self, didSelect: shippingMethod, handler: completion)
-    }
     
-    func paymentAuthorization(didSelectShippingContact contact: PKContact, handler completion: @escaping (PKPaymentRequestShippingContactUpdate) -> Void) {
-        delegate?.paymentSession(self, didSelectShippingContact: contact, handler: completion)
-    }
-    
-    func paymentAuthorization(didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+    @available(iOS 11.0, *)
+    public func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         isAuthenticating = false
         
         delegate?.paymentSession(self, didAuthorize: payment, handler: { result in
@@ -225,5 +205,15 @@ extension PaymentSession {
             
             completion(result)
         })
+    }
+    
+    @available(iOS 11.0, *)
+    public func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingMethod shippingMethod: PKShippingMethod, handler completion: @escaping (PKPaymentRequestShippingMethodUpdate) -> Swift.Void) {
+        delegate?.paymentSession(self, didSelect: shippingMethod, handler: completion)
+    }
+    
+    @available(iOS 11.0, *)
+    public func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController, didSelectShippingContact contact: PKContact, handler completion: @escaping (PKPaymentRequestShippingContactUpdate) -> Swift.Void) {
+        delegate?.paymentSession(self, didSelectShippingContact: contact, handler: completion)
     }
 }

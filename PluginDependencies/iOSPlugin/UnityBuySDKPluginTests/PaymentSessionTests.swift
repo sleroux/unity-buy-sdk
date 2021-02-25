@@ -68,7 +68,6 @@ class PaymentSessionTests: XCTestCase {
     //  MARK: - Presenting and Dismissing -
     //
     /// Tests that the shouldResignActive is correctly set according to the state of the Payment view controller
-//    @available(iOS 10.0, *)
 //    func testPresentAndDismissViewController() {
 //
 //        let session = Models.createPaymentSession(requiringShippingAddressFields: true, usingNonDefault: MockAuthorizationController.self)
@@ -98,12 +97,12 @@ class PaymentSessionTests: XCTestCase {
         summaryItems[2] = PKPaymentSummaryItem.init(label: "Shipping", amount: selectedMethod.amount)
         
         let delegate = MockPaymentSessionDelegate()
-        delegate.onSessionDidSelectShippingMethod = { session, method, completion in
+        delegate.onSessionDidSelectShippingMethodUpdateRequest = { session, method, completion in
             
             XCTAssertEqual(paymentSession, session)
             XCTAssertEqual(selectedMethod, method)
             
-            completion(completionStatus, summaryItems)
+            completion(PKPaymentRequestShippingMethodUpdate(paymentSummaryItems: summaryItems))
         }
         
         paymentSession.delegate = delegate
@@ -111,9 +110,9 @@ class PaymentSessionTests: XCTestCase {
         
         let expectation = self.expectation(description: "MockAuthorizationController.invokeDidSelectShippingMethod failed to complete")
         
-        MockAuthorizationController.invokeDidSelectShippingMethod(selectedMethod) { (status, items) in
-            XCTAssertEqual(completionStatus, status)
-            XCTAssertEqual(summaryItems, items)
+        MockAuthorizationController.invokeDidSelectShippingMethodHandler(selectedMethod) { requestUpdate in
+            XCTAssertEqual(completionStatus, requestUpdate.status)
+            XCTAssertEqual(summaryItems, requestUpdate.paymentSummaryItems)
 
             expectation.fulfill()
         }
@@ -244,7 +243,6 @@ class PaymentSessionTests: XCTestCase {
     func testPaymentFinishFailure() {
         let paymentSession   = Models.createPaymentSession(requiringShippingAddressFields: true, usingNonDefault: MockAuthorizationController.self)
         let completionStatus = PKPaymentAuthorizationStatus.failure
-        let expectedPayment  = Models.createPayment()
         let paymentStatus    = PaymentStatus.failed
 
         let finishExpectation    = self.expectation(description: "MockPaymentSessionDelegate.onSessionDidFinish failed to complete")
@@ -263,7 +261,7 @@ class PaymentSessionTests: XCTestCase {
         
         paymentSession.delegate = delegate
         paymentSession.presentAuthorizationController()
-        paymentSession.paymentAuthorizationWillAuthorizePayment()
+        paymentSession.isAuthenticating = true
         
         MockAuthorizationController.invokeDidFinish();
         

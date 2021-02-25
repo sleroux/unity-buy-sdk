@@ -92,12 +92,11 @@ class DeserializableTests: XCTestCase {
     }
     
     func testShippingMethod() {
-
         let json   = Models.createShippingMethodJson(amount: amount, label: label, identifier: identifier, detail: detail, type: type)
         let jsonData   = try! JSONSerialization.data(withJSONObject: json)
         let jsonString = String.init(data: jsonData, encoding: .utf8)!
-        let methodFromJson   = PKShippingMethod.deserialize(json)!
-        let methodFromString = PKShippingMethod.deserialize(jsonString)!
+        let methodFromJson   = PKShippingMethod.deserializeShippingMethod(json)!
+        let methodFromString = PKShippingMethod.deserializeShippingMethod(jsonString)!
         
         XCTAssertEqual(methodFromJson.amount,     NSDecimalNumber(string: amount))
         XCTAssertEqual(methodFromJson.label,      label)
@@ -112,8 +111,8 @@ class DeserializableTests: XCTestCase {
         let json = Models.createShippingMethodJson(amount: amount, label: label, identifier: identifier, detail: detail)
         let jsonData   = try! JSONSerialization.data(withJSONObject: json)
         let jsonString = String.init(data: jsonData, encoding: .utf8)!
-        let methodFromJson   = PKShippingMethod.deserialize(json)!
-        let methodFromString = PKShippingMethod.deserialize(jsonString)!
+        let methodFromJson   = PKShippingMethod.deserializeShippingMethod(json)!
+        let methodFromString = PKShippingMethod.deserializeShippingMethod(jsonString)!
 
         XCTAssertEqual(methodFromJson.amount,     NSDecimalNumber(string: amount))
         XCTAssertEqual(methodFromJson.label,      label)
@@ -131,7 +130,7 @@ class DeserializableTests: XCTestCase {
         let jsonB = Models.createShippingMethodJson(amount: amountB, label: labelB, identifier: identifierB, detail: detailB)
         let jsonCollection = [jsonA, jsonB]
         
-        let items = PKShippingMethod.deserialize(jsonCollection)!
+        let items = PKShippingMethod.deserializeShippingMethod(jsonCollection)!
         
         XCTAssertEqual(items.count, 2)
         XCTAssertEqual(items[0].amount,     NSDecimalNumber(string: amount))

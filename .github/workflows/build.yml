@@ -1,4 +1,4 @@
-name: Build Unity Project and Dependencies
+name: Build .unitypackage
 
 on:
   pull_request:

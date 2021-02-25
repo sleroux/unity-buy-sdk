@@ -47,7 +47,7 @@ import PassKit
             
             guard
                 let shippingMethodsJson = extractItems(from: serializedShippingMethods),
-                let methods             = PKShippingMethod.deserialize(shippingMethodsJson)
+                let methods             = PKShippingMethod.deserializeShippingMethod(shippingMethodsJson)
             else {
                 return false
             }

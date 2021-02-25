@@ -75,7 +75,7 @@ struct ApplePayEventResponse: Deserializable {
         /// Parse Shipping Methods
         if let shippingMethodsJsonObject = json[ResponseKey.shippingMethods.rawValue] as? [JSON] {
             
-            guard let methods = PKShippingMethod.deserialize(shippingMethodsJsonObject) else {
+            guard let methods = PKShippingMethod.deserializeShippingMethod(shippingMethodsJsonObject) else {
                 return nil
             }
             

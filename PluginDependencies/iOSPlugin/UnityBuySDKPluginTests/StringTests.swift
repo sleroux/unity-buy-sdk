@@ -29,7 +29,6 @@ import PassKit
 
 @testable import UnityBuySDKPlugin
 
-@available(iOS 10.0, *)
 class StringTests : XCTestCase {
     
     /// Test that rawValues correspond to the init
@@ -40,11 +39,9 @@ class StringTests : XCTestCase {
         XCTAssertEqual(PKPaymentAuthorizationStatus.invalidBillingPostalAddress, PKPaymentAuthorizationStatus(rawStringValue: "InvalidBillingPostalAddress"))
         XCTAssertEqual(PKPaymentAuthorizationStatus.invalidShippingPostalAddress, PKPaymentAuthorizationStatus(rawStringValue: "InvalidShippingPostalAddress"))
         
-        if #available(iOS 9.2, *) {
-            XCTAssertEqual(PKPaymentAuthorizationStatus.pinRequired, PKPaymentAuthorizationStatus(rawStringValue: "PinRequired"))
-            XCTAssertEqual(PKPaymentAuthorizationStatus.pinIncorrect, PKPaymentAuthorizationStatus(rawStringValue: "PinIncorrect"))
-            XCTAssertEqual(PKPaymentAuthorizationStatus.pinLockout, PKPaymentAuthorizationStatus(rawStringValue: "PinLockout"))
-        }
+        XCTAssertEqual(PKPaymentAuthorizationStatus.pinRequired, PKPaymentAuthorizationStatus(rawStringValue: "PinRequired"))
+        XCTAssertEqual(PKPaymentAuthorizationStatus.pinIncorrect, PKPaymentAuthorizationStatus(rawStringValue: "PinIncorrect"))
+        XCTAssertEqual(PKPaymentAuthorizationStatus.pinLockout, PKPaymentAuthorizationStatus(rawStringValue: "PinLockout"))
     }
     
     func testPaymentSummaryItemTypeInit() {

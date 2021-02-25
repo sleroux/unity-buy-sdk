@@ -17,7 +17,7 @@ extern "C" void UnityBuyAppControllerSetShouldResign(bool value)
 
 extern "C" void UnitySendMessage(const char* obj, const char* method, const char* msg)
 {
-    
+//    _RespondToNativeMessage(const char *identifier, const char *response) {
 }
 
 extern "C" UIViewController *UnityGetGLViewController()

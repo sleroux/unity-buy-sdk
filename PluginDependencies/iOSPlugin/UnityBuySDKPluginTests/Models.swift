@@ -173,7 +173,7 @@ struct Models {
         return shippingMethods
     }
     
-    static func createPaymentSession(requiringShippingAddressFields: Bool, usingNonDefault controllerType: PaymentAuthorizationControlling.Type?) -> PaymentSession {
+    static func createPaymentSession(requiringShippingAddressFields: Bool, usingNonDefault controllerType: PKPaymentAuthorizationController.Type?) -> PaymentSession {
         
         if let controllerType = controllerType {
             return PaymentSession(

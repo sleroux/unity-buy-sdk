@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		E98FCB9325E44C90001DB1A9 /* ApplePayButtonGenerator.mm in Sources */ = {isa = PBXBuildFile; fileRef = E9429E0225DEC94F00AB5E3C /* ApplePayButtonGenerator.mm */; };
 		E98FCB9425E44C90001DB1A9 /* Dictionary+RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996525D7053A007C35DC /* Dictionary+RawRepresentable.swift */; };
-		E98FCB9525E44C90001DB1A9 /* PKPaymentAuthorizationController+PaymentAuthorizationControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996025D7053A007C35DC /* PKPaymentAuthorizationController+PaymentAuthorizationControlling.swift */; };
 		E98FCB9625E44C90001DB1A9 /* String+Lines.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995A25D7053A007C35DC /* String+Lines.swift */; };
 		E98FCB9725E44C90001DB1A9 /* PaymentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995B25D7053A007C35DC /* PaymentSession.swift */; };
-		E98FCB9825E44C90001DB1A9 /* PKPaymentAuthorizationViewController+PaymentAuthorizationControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996E25D7053A007C35DC /* PKPaymentAuthorizationViewController+PaymentAuthorizationControlling.swift */; };
 		E98FCB9925E44C90001DB1A9 /* PKPaymentSummaryItem+Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931997025D7053A007C35DC /* PKPaymentSummaryItem+Deserializable.swift */; };
 		E98FCB9A25E44C90001DB1A9 /* PKPaymentToken+Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996325D7053A007C35DC /* PKPaymentToken+Serializable.swift */; };
 		E98FCB9B25E44C90001DB1A9 /* ApplePayEventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995F25D7053A007C35DC /* ApplePayEventResponse.swift */; };
@@ -22,7 +20,6 @@
 		E98FCB9F25E44C90001DB1A9 /* PKShippingMethod+Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995925D7053A007C35DC /* PKShippingMethod+Deserializable.swift */; };
 		E98FCBA025E44C90001DB1A9 /* PKPaymentAuthorizationStatus+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995025D70539007C35DC /* PKPaymentAuthorizationStatus+String.swift */; };
 		E98FCBA125E44C90001DB1A9 /* PKShippingMethod+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931997525D7053A007C35DC /* PKShippingMethod+Init.swift */; };
-		E98FCBA225E44C90001DB1A9 /* PaymentSession+PaymentAuthorizationViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931997725D7053A007C35DC /* PaymentSession+PaymentAuthorizationViewControllerDelegate.swift */; };
 		E98FCBA325E44C90001DB1A9 /* Tester.mm in Sources */ = {isa = PBXBuildFile; fileRef = E93199B225D70559007C35DC /* Tester.mm */; };
 		E98FCBA425E44C90001DB1A9 /* PKContact+Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996A25D7053A007C35DC /* PKContact+Serializable.swift */; };
 		E98FCBA525E44C90001DB1A9 /* Cart+ApplePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996B25D7053A007C35DC /* Cart+ApplePay.swift */; };
@@ -31,12 +28,10 @@
 		E98FCBA825E44C90001DB1A9 /* MessageResponder.mm in Sources */ = {isa = PBXBuildFile; fileRef = E931997425D7053A007C35DC /* MessageResponder.mm */; };
 		E98FCBA925E44C90001DB1A9 /* Deserializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996625D7053A007C35DC /* Deserializable.swift */; };
 		E98FCBAA25E44C90001DB1A9 /* PKError+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996925D7053A007C35DC /* PKError+JSON.swift */; };
-		E98FCBAB25E44C90001DB1A9 /* PaymentSession+PaymentAuthorizationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931997225D7053A007C35DC /* PaymentSession+PaymentAuthorizationControllerDelegate.swift */; };
 		E98FCBAC25E44C90001DB1A9 /* MessageCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996225D7053A007C35DC /* MessageCenter.swift */; };
 		E98FCBAD25E44C90001DB1A9 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996C25D7053A007C35DC /* UIColor+Hex.swift */; };
 		E98FCBAE25E44C90001DB1A9 /* UnityMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995325D7053A007C35DC /* UnityMessage.swift */; };
 		E98FCBAF25E44C90001DB1A9 /* CNPostalAddress+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995D25D7053A007C35DC /* CNPostalAddress+String.swift */; };
-		E98FCBB025E44C90001DB1A9 /* PaymentAuthorizationControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995725D7053A007C35DC /* PaymentAuthorizationControlling.swift */; };
 		E98FCBB125E44C90001DB1A9 /* WebCheckoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931996725D7053A007C35DC /* WebCheckoutSession.swift */; };
 		E98FCBB225E44C90001DB1A9 /* PKContactField+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E931995225D7053A007C35DC /* PKContactField+String.swift */; };
 		E98FCBB325E44C90001DB1A9 /* Cart+ApplePay.mm in Sources */ = {isa = PBXBuildFile; fileRef = E931996D25D7053A007C35DC /* Cart+ApplePay.mm */; };
@@ -96,14 +91,12 @@
 		E931995325D7053A007C35DC /* UnityMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnityMessage.swift; sourceTree = "<group>"; };
 		E931995525D7053A007C35DC /* ApplePayEventDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplePayEventDispatcher.swift; sourceTree = "<group>"; };
 		E931995625D7053A007C35DC /* PKPayment+Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKPayment+Serializable.swift"; sourceTree = "<group>"; };
-		E931995725D7053A007C35DC /* PaymentAuthorizationControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentAuthorizationControlling.swift; sourceTree = "<group>"; };
 		E931995925D7053A007C35DC /* PKShippingMethod+Deserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKShippingMethod+Deserializable.swift"; sourceTree = "<group>"; };
 		E931995A25D7053A007C35DC /* String+Lines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Lines.swift"; sourceTree = "<group>"; };
 		E931995B25D7053A007C35DC /* PaymentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentSession.swift; sourceTree = "<group>"; };
 		E931995C25D7053A007C35DC /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		E931995D25D7053A007C35DC /* CNPostalAddress+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNPostalAddress+String.swift"; sourceTree = "<group>"; };
 		E931995F25D7053A007C35DC /* ApplePayEventResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplePayEventResponse.swift; sourceTree = "<group>"; };
-		E931996025D7053A007C35DC /* PKPaymentAuthorizationController+PaymentAuthorizationControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKPaymentAuthorizationController+PaymentAuthorizationControlling.swift"; sourceTree = "<group>"; };
 		E931996125D7053A007C35DC /* Cart+WebCheckout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Cart+WebCheckout.mm"; sourceTree = "<group>"; };
 		E931996225D7053A007C35DC /* MessageCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCenter.swift; sourceTree = "<group>"; };
 		E931996325D7053A007C35DC /* PKPaymentToken+Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKPaymentToken+Serializable.swift"; sourceTree = "<group>"; };
@@ -115,13 +108,10 @@
 		E931996B25D7053A007C35DC /* Cart+ApplePay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cart+ApplePay.swift"; sourceTree = "<group>"; };
 		E931996C25D7053A007C35DC /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		E931996D25D7053A007C35DC /* Cart+ApplePay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Cart+ApplePay.mm"; sourceTree = "<group>"; };
-		E931996E25D7053A007C35DC /* PKPaymentAuthorizationViewController+PaymentAuthorizationControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKPaymentAuthorizationViewController+PaymentAuthorizationControlling.swift"; sourceTree = "<group>"; };
 		E931997025D7053A007C35DC /* PKPaymentSummaryItem+Deserializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKPaymentSummaryItem+Deserializable.swift"; sourceTree = "<group>"; };
 		E931997125D7053A007C35DC /* PKPaymentSummaryItemType+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKPaymentSummaryItemType+String.swift"; sourceTree = "<group>"; };
-		E931997225D7053A007C35DC /* PaymentSession+PaymentAuthorizationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaymentSession+PaymentAuthorizationControllerDelegate.swift"; sourceTree = "<group>"; };
 		E931997425D7053A007C35DC /* MessageResponder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MessageResponder.mm; sourceTree = "<group>"; };
 		E931997525D7053A007C35DC /* PKShippingMethod+Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PKShippingMethod+Init.swift"; sourceTree = "<group>"; };
-		E931997725D7053A007C35DC /* PaymentSession+PaymentAuthorizationViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaymentSession+PaymentAuthorizationViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		E931997825D7053A007C35DC /* Cart+WebCheckout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cart+WebCheckout.h"; sourceTree = "<group>"; };
 		E931997925D7053A007C35DC /* Cart+ApplePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cart+ApplePay.h"; sourceTree = "<group>"; };
 		E93199A225D70559007C35DC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -246,16 +236,11 @@
 				E931996525D7053A007C35DC /* Dictionary+RawRepresentable.swift */,
 				E931996225D7053A007C35DC /* MessageCenter.swift */,
 				E931997425D7053A007C35DC /* MessageResponder.mm */,
-				E931995725D7053A007C35DC /* PaymentAuthorizationControlling.swift */,
 				E931995B25D7053A007C35DC /* PaymentSession.swift */,
-				E931997225D7053A007C35DC /* PaymentSession+PaymentAuthorizationControllerDelegate.swift */,
-				E931997725D7053A007C35DC /* PaymentSession+PaymentAuthorizationViewControllerDelegate.swift */,
 				E931996A25D7053A007C35DC /* PKContact+Serializable.swift */,
 				E931995225D7053A007C35DC /* PKContactField+String.swift */,
 				E931996925D7053A007C35DC /* PKError+JSON.swift */,
 				E931995625D7053A007C35DC /* PKPayment+Serializable.swift */,
-				E931996025D7053A007C35DC /* PKPaymentAuthorizationController+PaymentAuthorizationControlling.swift */,
-				E931996E25D7053A007C35DC /* PKPaymentAuthorizationViewController+PaymentAuthorizationControlling.swift */,
 				E931995025D70539007C35DC /* PKPaymentAuthorizationStatus+String.swift */,
 				E931997025D7053A007C35DC /* PKPaymentSummaryItem+Deserializable.swift */,
 				E931997125D7053A007C35DC /* PKPaymentSummaryItemType+String.swift */,
@@ -396,11 +381,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E98FCBAC25E44C90001DB1A9 /* MessageCenter.swift in Sources */,
-				E98FCBAB25E44C90001DB1A9 /* PaymentSession+PaymentAuthorizationControllerDelegate.swift in Sources */,
 				E98FCBA625E44C90001DB1A9 /* Cart+WebCheckout.mm in Sources */,
 				E98FCBB225E44C90001DB1A9 /* PKContactField+String.swift in Sources */,
 				E98FCBAD25E44C90001DB1A9 /* UIColor+Hex.swift in Sources */,
-				E98FCBA225E44C90001DB1A9 /* PaymentSession+PaymentAuthorizationViewControllerDelegate.swift in Sources */,
 				E98FCBA725E44C90001DB1A9 /* PKPaymentSummaryItemType+String.swift in Sources */,
 				E98FCB9A25E44C90001DB1A9 /* PKPaymentToken+Serializable.swift in Sources */,
 				E98FCB9325E44C90001DB1A9 /* ApplePayButtonGenerator.mm in Sources */,
@@ -412,7 +395,6 @@
 				E98FCBB125E44C90001DB1A9 /* WebCheckoutSession.swift in Sources */,
 				E98FCB9B25E44C90001DB1A9 /* ApplePayEventResponse.swift in Sources */,
 				E98FCBA325E44C90001DB1A9 /* Tester.mm in Sources */,
-				E98FCB9825E44C90001DB1A9 /* PKPaymentAuthorizationViewController+PaymentAuthorizationControlling.swift in Sources */,
 				E98FCBA425E44C90001DB1A9 /* PKContact+Serializable.swift in Sources */,
 				E98FCB9425E44C90001DB1A9 /* Dictionary+RawRepresentable.swift in Sources */,
 				E98FCBB325E44C90001DB1A9 /* Cart+ApplePay.mm in Sources */,
@@ -420,11 +402,9 @@
 				E98FCB9D25E44C90001DB1A9 /* Serializable.swift in Sources */,
 				E98FCBAA25E44C90001DB1A9 /* PKError+JSON.swift in Sources */,
 				E98FCB9625E44C90001DB1A9 /* String+Lines.swift in Sources */,
-				E98FCBB025E44C90001DB1A9 /* PaymentAuthorizationControlling.swift in Sources */,
 				E98FCBA125E44C90001DB1A9 /* PKShippingMethod+Init.swift in Sources */,
 				E98FCBA925E44C90001DB1A9 /* Deserializable.swift in Sources */,
 				E98FCB9C25E44C90001DB1A9 /* ApplePayEventDispatcher.swift in Sources */,
-				E98FCB9525E44C90001DB1A9 /* PKPaymentAuthorizationController+PaymentAuthorizationControlling.swift in Sources */,
 				E98FCB9E25E44C90001DB1A9 /* PKPayment+Serializable.swift in Sources */,
 				E98FCB9725E44C90001DB1A9 /* PaymentSession.swift in Sources */,
 				E98FCBA525E44C90001DB1A9 /* Cart+ApplePay.swift in Sources */,

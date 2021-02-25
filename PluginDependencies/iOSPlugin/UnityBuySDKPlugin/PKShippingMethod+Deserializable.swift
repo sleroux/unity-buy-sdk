@@ -28,8 +28,7 @@ import Foundation
 import PassKit
 
 extension PKShippingMethod {
-
-    override public class func deserialize(_ json: JSON) -> Self? {
+    public class func deserializeShippingMethod(_ json: JSON) -> Self? {
         guard
             let label  = json[Field.label.rawValue] as? String,
             let amount = json[Field.amount.rawValue] as? String
@@ -47,6 +46,29 @@ extension PKShippingMethod {
         shippingMethod.detail     = json[Field.detail.rawValue] as? String
         shippingMethod.identifier = json[Field.identifier.rawValue] as? String
         return shippingMethod
+    }
+    
+    public class func deserializeShippingMethod(_ jsonCollection: [JSON]) -> [PKShippingMethod]? {
+        let items = jsonCollection.compactMap {
+            PKShippingMethod.deserializeShippingMethod($0)
+        }
+        
+        if items.count < jsonCollection.count {
+            return nil
+        } else {
+            return items
+        }
+    }
+    
+    public static func deserializeShippingMethod(_ string: String) -> PKShippingMethod? {
+        guard
+            let data = string.data(using: .utf8),
+            let jsonObject = (try? JSONSerialization.jsonObject(with: data)) as? JSON
+        else {
+            return nil
+        }
+
+        return PKShippingMethod.deserializeShippingMethod(jsonObject)
     }
 }
 
